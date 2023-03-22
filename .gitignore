@@ -1,0 +1,2 @@
+# Ignore the node modules folder. Dependencies that are stored here can be installed from the package.json
+node_modules/
