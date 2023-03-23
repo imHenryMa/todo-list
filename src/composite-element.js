@@ -33,7 +33,14 @@ export default function CompositeElement() {
         return this;
     }
 
+    function setCompositeAttribute(){
+        this.element.setAttribute(...arguments);
+
+        return this;
+    }
+
     function appendTo(parent){
+        console.log(`Parent is ${parent}`);
         parent.appendChild(this.element);
 
         return this;
@@ -45,11 +52,13 @@ export default function CompositeElement() {
     }
 
     return {
+        element,
         create,
         addClass,
         appendTo,
         setValue,
         setTextContent,
         setEventListener,
+        setCompositeAttribute,
     }
 };
