@@ -27,6 +27,10 @@ export default function CompositeElement() {
         return this;
     }
 
+    function getValue(){
+        return this.element.value;
+    }
+
     function setTextContent(text){
         this.element.textContent=text;
 
@@ -40,20 +44,22 @@ export default function CompositeElement() {
     }
 
     function appendTo(parent){
-        console.log(`Parent is ${parent}`);
         parent.appendChild(this.element);
 
         return this;
     }
 
     function setEventListener(){
-            console.log(`Calling addEventListener with ${this.element}`);
+            console.log(`Setting event listner for ${this.element.id}`);
             this.element.addEventListener(...arguments);
+
+        return this;
     }
 
     return {
         element,
         create,
+        getValue,
         addClass,
         appendTo,
         setValue,

@@ -13,15 +13,15 @@ export default (() =>{
     let taskList = new TaskList;
 
     function AddTask(){
-        console.log('Adding task');
+        console.log('TODO: Adding task');
+        console.table(arguments[0]);
+
+        
     }
 
     function ClearTasks(){
-        console.log('Clearing tasks');
+        console.log('TODO: Clearing tasks');
     }
-
-
-
     
     return{
         AddTask,
