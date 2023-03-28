@@ -9,6 +9,8 @@ import {Subject} from './observer.js';
 
 export default (()=>{
 
+    let currentGroup;
+
     //Observer-Subject pattern for when 'Submit' button is pressed
     let submitSubject = new Subject();
 
@@ -73,7 +75,6 @@ export default (()=>{
         .setEventListener('click',notify)
         .appendTo(window.element);
 
-
     function notify(){
         //Collect all the form data into a single object
         let taskData = {
@@ -81,6 +82,7 @@ export default (()=>{
             description: description.getValue(),
             date: date.getValue(),
             priority: priority.getValue(),
+            group: currentGroup,
         }
 
         //TODO: Javascript Form validation for the input items above.
@@ -96,6 +98,11 @@ export default (()=>{
 
         //Hide the task window
         hide();
+    }
+
+    function SetCurrentGroup(title){
+        currentGroup = title;
+        console.log(`Current group is now ${currentGroup}`);
     }
 
     function show(){
@@ -117,6 +124,7 @@ export default (()=>{
         submitSubject,
         show,
         hide,
+        SetCurrentGroup,
     }
     
 })();

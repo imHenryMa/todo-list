@@ -6,7 +6,7 @@ export default function TaskList(){
     this.items = [];
 };
 
-TaskList.prototype.add = function(title,description,dueDate,priority,notes,isDone){
+TaskList.prototype.add = function(title,description,dueDate,priority,notes,isDone,group){
     console.log('Adding to tasklist');
     let task = {
         title,
@@ -15,16 +15,15 @@ TaskList.prototype.add = function(title,description,dueDate,priority,notes,isDon
         priority,
         notes,
         isDone,
-        timeStamp: Date.now()
+        timeStamp: Date.now(),
+        group
     };
     this.items.push(task);
 }
 
 TaskList.prototype.remove = function(timeStamp){
-    console.log('Removing from tasklist');
-    this.items = this.items.array.filter((element) => {
-        element.timeStamp != timeStamp;
-    });
+    console.log(`Removing from tasklist: ${timeStamp}`);
+    this.items = this.items.filter((element) => (element.timeStamp != timeStamp));
 }
 
 TaskList.prototype.clear = function(){
